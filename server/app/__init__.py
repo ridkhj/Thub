@@ -1,7 +1,7 @@
 from flask import Flask
 from app.config import Config
 from app.db import mongo
-from app.routes import produtos, fornecedores, movimentacoes
+from app.routes import produtos
 
 def create_app():
     app = Flask(__name__)
@@ -10,8 +10,6 @@ def create_app():
     mongo.init_app(app)
 
     # Registrar rotas
-    app.register_blueprint(produtos.bp)
-    app.register_blueprint(fornecedores.bp)
-    app.register_blueprint(movimentacoes.bp)
+    app.register_blueprint(produtos.produto_bp)
 
     return app
