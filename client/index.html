@@ -7,6 +7,8 @@
   <title>T-Hub | Controle De Estoque</title>
   <link rel="stylesheet" href="./css/style.css">
   <link rel="shortcut icon" href="./imgs/favicon.png" type="image/x-icon">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css" />
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.css" />
 </head>
 
 <body>
@@ -20,8 +22,45 @@
     </div>
   </header>
   <main>
+    <h1 class="title">Cadastro de produtos</h1>
     <div class="container">
-      <h1 class="title">Cadastro de produtos</h1>
+      <button class="add"><i class="ph ph-plus"></i> Adicionar</button>
+      <input type="search" placeholder="Buscar Produto">
+    </div>
+    <div class="table">
+      <table>
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Quantidade</th>
+            <th>Preço</th>
+            <th>Marca</th>
+            <th>Ação</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Pneu Aro 14</td>
+            <td>20</td>
+            <td>R$ 150,00</td>
+            <td>Pirelli</td>
+            <td>
+              <button class="edit"><i class="ph ph-pencil"></i> Editar</button>
+              <button class="remove"><i class="ph ph-trash"></i> Remover</button>
+            </td>
+          </tr>
+          <tr>
+            <td>Pneu Aro 15</td>
+            <td>35</td>
+            <td>R$ 180,00</td>
+            <td>Pirelli</td>
+            <td><button class="edit"><i class="ph ph-pencil"></i> Editar</button>
+              <button class="remove"><i class="ph ph-trash"></i> Remover</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
     </div>
   </main>
 </body>
