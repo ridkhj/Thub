@@ -2,10 +2,17 @@ from flask import request, jsonify
 from bson import ObjectId
 from bson.json_util import dumps
 from app.models import produto_model
+from app.utils.produto_validator import validar_produto
 
 def criar_produto():
     data = request.get_json()
-    result = produto_model.inserir_produto(data)
+    produto, erros = validar_produto(data)
+    
+    if erros:
+        return jsonify({ "erros": erros }), 400
+    
+    result = produto_model.inserir_produto(produto)
+
     return jsonify({"id": str(result.inserted_id)}), 201
 
 def listar_produtos():
