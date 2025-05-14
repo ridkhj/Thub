@@ -2,9 +2,15 @@ from flask import request, jsonify
 from bson import ObjectId
 from bson.json_util import dumps
 from app.models import fornecedor_model
+from app.utils.fornecedor_validator import validar_fornecedor
 
 def criar_fornecedor():
     data = request.get_json()
+    produto, erros = validar_fornecedor(data)
+    
+    if erros:
+        return jsonify({"erros": erros}), 400
+
     result = fornecedor_model.inserir_fornecedor(data)
     return jsonify({"id": str(result.inserted_id)}), 201
 
