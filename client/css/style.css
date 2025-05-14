@@ -52,14 +52,13 @@ main {
 .container {
   padding-top: 4rem;
   display: flex;
-  justify-content: center;
-  gap: 30px;
+  justify-content: flex-end;
+  gap: 10px;
 }
 
 .container input {
   padding: 10px 25px;
   border: 1px solid gray;
-  border-radius: 5px;
 
   &::placeholder {
     color: black;
@@ -67,6 +66,31 @@ main {
 
   &:focus {
     outline: none;
+  }
+}
+
+.search {
+  display: flex;
+  border-collapse: collapse;
+  position: relative;
+}
+
+.ph-magnifying-glass {
+  position: relative;
+  left: 22px;
+  bottom: -9px;
+  font-size: 19px;
+}
+
+.search button {
+  padding: 10px 25px;
+  background-color: #0b3e6e;
+  color: white;
+  cursor: pointer;
+  transition: 0.5s;
+
+  &:hover {
+    opacity: 0.7;
   }
 }
 
@@ -129,6 +153,7 @@ thead {
   transition: 0.5s;
   font-weight: 600;
   border-radius: 5px;
+  margin-left: 5px;
 
   &:hover {
     opacity: 0.8;
