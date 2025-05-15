@@ -40,7 +40,7 @@ header {
 }
 
 main {
-  padding: 2rem 15rem 15rem 15rem;
+  padding: 2rem 12rem 12rem 12rem;
 }
 
 .title {
@@ -129,6 +129,11 @@ td {
 thead {
   background-color: #0b3e6e;
   color: white;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
 }
 
 .edit {
