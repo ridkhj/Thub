@@ -2,35 +2,35 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>T-Hub | Controle De Estoque</title>
-  <link rel="stylesheet" href="./css/style.css">
-  <link rel="shortcut icon" href="./imgs/favicon.png" type="image/x-icon">
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css" />
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.css" />
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="shortcut icon" href="./imgs/favicon.png" type="image/x-icon" />
+  <link rel="stylesheet" type="text/css"
+    href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css" />
+  <link rel="stylesheet" type="text/css"
+    href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.css" />
 </head>
 
 <body>
   <header>
     <div class="headerimg">
-      <img src="./imgs/Projectlogo.png" alt="">
+      <img src="./imgs/Projectlogo.png" alt="" />
     </div>
     <div class="user">
       <h2>Wedne Morais</h2>
-      <img src="https://img.icons8.com/?size=100&id=rrtYnzKMTlUr&format=png&color=FFFFFF" alt="">
+      <img src="https://img.icons8.com/?size=100&id=rrtYnzKMTlUr&format=png&color=FFFFFF" alt="" />
     </div>
   </header>
+
   <main>
     <h1 class="title">Cadastro de produtos</h1>
+
     <div class="container">
-      <div class="search">
-        <i class="ph ph-magnifying-glass"></i>
-        <input type="search" placeholder="Buscar Produto">
-        <button type="submit">Buscar</button>
-      </div>
-      <button class="add"><i class="ph ph-plus"></i> Adicionar</button>
+      <button onclick="openAddModal()" class="add"><i class="ph ph-plus"></i> Adicionar</button>
     </div>
+
     <div class="table">
       <table>
         <thead>
@@ -45,37 +45,62 @@
         </thead>
         <tbody>
           <tr>
-            <td>Pneu Aro 14</td>
-            <td>20</td>
-            <td>R$ 150,00</td>
-            <td>Pirelli</td>
-            <td>Ricardinho</td>
-            <td>
-              <div class="buttons">
-                <button class="edit"><i class="ph ph-pencil"></i> Editar</button>
-                <button class="remove"><i class="ph ph-trash"></i> Remover</button>
-              </div>
-
-            </td>
-          </tr>
-          <tr>
-            <td>Pneu Aro 15</td>
-            <td>35</td>
-            <td>R$ 180,00</td>
-            <td>Pirelli</td>
-            <td>Ricardinho</td>
-            <td>
-              <div class="buttons">
-                <button class="edit"><i class="ph ph-pencil"></i> Editar</button>
-                <button class="remove"><i class="ph ph-trash"></i> Remover</button>
-              </div>
-            </td>
+            <td colspan="6">Carregando produtos...</td>
           </tr>
         </tbody>
       </table>
+    </div>
 
+    <div class="loading-spinner" id="spinner">
+      <div></div>
+    </div>
+    <div class="error-message" id="errorMsg">
+      Erro ao carregar produtos. Tente novamente mais tarde.
     </div>
   </main>
+
+  <div id="editProductModal" class="modal-edit">
+    <div class="modal-edit-content">
+      <span class="close-edit" onclick="closeEditModal()">&times;</span>
+      <h2>Editar Produto</h2>
+      <form id="editProductForm">
+        <input type="hidden" id="editId">
+        <label>Nome:</label>
+        <input type="text" id="editNome" required>
+        <label>Quantidade:</label>
+        <input type="number" id="editQuantidade" required>
+        <label>Preço:</label>
+        <input type="number" id="editPreco" required>
+        <label>Marca:</label>
+        <input type="text" id="editMarca" required>
+        <label>Fornecedor:</label>
+        <input type="text" id="editFornecedor_id" required>
+        <button type="submit">Salvar Alterações</button>
+      </form>
+    </div>
+  </div>
+
+  <div id="addProductModal" class="modal-add">
+    <div class="modal-add-content">
+        <span class="close-add" onclick="closeAddModal()">&times;</span>
+        <h2>Adicionar Produto</h2>
+        <form id="addProductForm">
+            <label>Nome:</label>
+            <input type="text" id="addNome" required>
+            <label>Quantidade:</label>
+            <input type="number" id="addQuantidade" required>
+            <label>Preço:</label>
+            <input type="number" id="addPreco" required>
+            <label>Marca:</label>
+            <input type="text" id="addMarca" required>
+            <label>Fornecedor:</label>
+            <input type="text" id="addFornecedor_id" required>
+            <button type="submit" class="btn-add">Adicionar Produto</button>
+        </form>
+    </div>
+  </div>
+
+  <script src="./js/script.js"></script>
 </body>
 
 </html>
